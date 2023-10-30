@@ -13,17 +13,6 @@
     <div class="container">
         <div class="heading">Music-web-app</div>
         <div class="music-container">
-            
-            
-            <div class="box">
-                <div class="image">
-                <img src="/src/Varinder Brar.jpg" alt=""> 
-                </div> 
-                <div class="music">
-                    <audio src="/mp3/SHUBH_ALL.mp3" controls></audio>
-                </div>  
-                </div>
-
             <div class="box">
                 <div class="image">
                 <img src="/src/KINNA SONA.jpeg" alt=""> 
@@ -158,6 +147,14 @@
                       <audio src="/mp3/enjoy time.mp3" controls></audio>
                   </div>  
                   </div>
+            <div class="box">
+                <div class="image">
+                <img src="/src/Varinder Brar.jpg" alt=""> 
+                </div> 
+                <div class="music">
+                    <audio src="/mp3/SHUBH_ALL.mp3" controls></audio>
+                </div>  
+                </div>
             
             <div class="box">
             <div class="image">
@@ -202,12 +199,38 @@
        <footer>
         <img src="./src/music-bcg.jpg" alt="logo" />
         <nav>
-          <a href="#Home">Home</a>
-          <a href="https://www.instagram.com/just_say_chandu/">Instagram</a>
-          <a href="https://www.linkedin.com/in/chandan-vishwakarma-4838971ab/">Linkedin</a>
-          <a href="#Home">About</a>
+<!--           <a href="#Home">Home</a> -->
+          <a href="https://www.instagram.com/its_me_animus/">Instagram</a>
+<!--           <a href="https://www.linkedin.com/in/chandan-vishwakarma-4838971ab/">Linkedin</a> -->
+<!--           <a href="#Home">About</a> -->
         </nav>
       </footer>
+
+    <script>
+         let currentlyPlaying = null;
+ 
+         // Function to stop all audio elements except the provided one
+         function stopAllAudioExcept(except) {
+             audioElements.forEach(audio => {
+                 if (audio !== except && !audio.paused) {
+                     audio.pause();
+                 }
+             });
+         }
+ 
+         // Get all the audio elements on the page
+         const audioElements = document.querySelectorAll('audio');
+ 
+         // Add event listeners to each audio element
+         audioElements.forEach(audio => {
+             audio.addEventListener('play', event => {
+                 if (currentlyPlaying && currentlyPlaying !== event.target) {
+                     currentlyPlaying.pause();
+                 }
+                 currentlyPlaying = event.target;
+             });
+         });
+     </script>
     
 </body>
 </html>
